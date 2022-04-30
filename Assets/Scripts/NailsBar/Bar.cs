@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using CharacterStates;
+using Client;
 
 namespace NailsBar{
     public class Bar : MonoBehaviour{
@@ -30,6 +31,13 @@ namespace NailsBar{
             _client.StopProcessing();
             _client = null;
             tryStopProcess();
+        }
+
+        public void AcceptCard(int cardNumber){//1-3
+            if (_client.TryGetComponent(out TasteGenerator taste))
+                taste.CheckTaste(cardNumber);
+            if (_client.TryGetComponent(out Navigation navigation))
+                navigation.MoveToExit();
         }
 
         private void tryStartProcess(){

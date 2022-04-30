@@ -2,7 +2,8 @@
     "name": "NailsBar",
     "rootNamespace": "",
     "references": [
-        "GUID:a4fad9750389ca849b1eabe569f5a9ed"
+        "GUID:a4fad9750389ca849b1eabe569f5a9ed",
+        "GUID:4aa255db779e86a4f95eafba71e4965a"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
