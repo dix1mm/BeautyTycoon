@@ -1,9 +1,10 @@
 using UnityEngine;
+using CharacterStates;
 
-[RequireComponent(typeof(Player))]
+[RequireComponent(typeof(Character))]
 public class PlayerNavigator : MonoBehaviour{
     private const string _floorLayer = "Floor";
-    private Player _player;
+    private Character _player;
     private Camera _camera;
     private int _layer;
 
@@ -16,6 +17,6 @@ public class PlayerNavigator : MonoBehaviour{
     private void Awake(){
         _camera = Camera.main;
         _layer = 1 << LayerMask.NameToLayer(_floorLayer);
-        _player = GetComponent<Player>();
+        _player = GetComponent<Character>();
     }
 }

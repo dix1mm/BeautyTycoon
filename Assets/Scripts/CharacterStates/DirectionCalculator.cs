@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 
 namespace CharacterStates{
-    public class DirectionCalculator{//я немного увлекся
+    internal class DirectionCalculator{//я немного увлекся
         private static Vector2[] _directions;//направления для каждого MovingState
         /*
             по направлению в котором мы передвинулись с предыдущего апдейта определит направление MovingState

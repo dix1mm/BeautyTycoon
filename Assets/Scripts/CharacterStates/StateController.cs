@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 
 namespace CharacterStates{
-    public abstract class StateController<T> where T : Enum{
+    internal abstract class StateController<T> where T : Enum{
         private Vector3 _lastPos;
 
         public T State{get; protected set;}

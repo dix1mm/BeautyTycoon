@@ -1,0 +1,16 @@
+{
+    "name": "NailsBar",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a4fad9750389ca849b1eabe569f5a9ed"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
