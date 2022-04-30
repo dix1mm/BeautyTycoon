@@ -21,11 +21,13 @@ namespace NailsBar{
         }
 
         public void WorkerExit(){
+            _worker.StopProcessing();
             _worker = null;
             tryStopProcess();
         }        
 
         public void ClientExit(){
+            _client.StopProcessing();
             _client = null;
             tryStopProcess();
         }
@@ -34,6 +36,8 @@ namespace NailsBar{
             if (isProcessing) return;
             if ((_worker != null) && (_client != null)){
                 isProcessing = true;
+                _worker.StartProcessing();
+                _client.StartProcessing();
                 OnProcessStart.Invoke();
             }
         }
@@ -42,6 +46,8 @@ namespace NailsBar{
             if (!isProcessing) return;
             if ((_worker == null) || (_client == null)){
                 isProcessing = false;
+                _worker?.StopProcessing();
+                _client?.StopProcessing();
                 OnProcessEnd.Invoke();
             }
         }
