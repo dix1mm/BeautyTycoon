@@ -34,6 +34,7 @@ namespace NailsBar{
         }
 
         public void AcceptCard(int cardNumber){//1-3
+            if (_client == null) return;
             if (_client.TryGetComponent(out TasteGenerator taste))
                 taste.CheckTaste(cardNumber);
             if (_client.TryGetComponent(out Navigation navigation))

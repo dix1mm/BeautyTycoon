@@ -40,6 +40,7 @@ namespace WorkingParams{
         }
 
         private void FixedUpdate(){
+            if (_time.IsDayEnded) return;
             _time.Update(Time.fixedDeltaTime);
             OnTimeChange.Invoke(_time.Time);
             if (_time.IsDayEnded)

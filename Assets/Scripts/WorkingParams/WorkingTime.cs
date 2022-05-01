@@ -16,7 +16,7 @@ namespace WorkingParams{
 
         public void StartNewDay(){
             _time = new DateTime();
-            _time.AddHours(_startHour);
+            _time = _time.AddHours(_startHour);
         }
 
         public void Update(float seconds){
@@ -24,7 +24,7 @@ namespace WorkingParams{
             _time = _time.AddMinutes(seconds * _realSecondValueInGameMinutes);
             if (_time.Hour > _endHour){//да, это не поможет если будет перебор до следующего дня, но велосипед займет через чур много времени
                 _time = new DateTime();
-                _time.AddHours(_endHour);
+                _time = _time.AddHours(_endHour);
             }
         }
     }
