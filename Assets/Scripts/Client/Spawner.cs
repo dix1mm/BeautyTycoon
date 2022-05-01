@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,6 +10,8 @@ namespace Client{
         [SerializeField] private Navigation _client;
         [SerializeField] private int _maxCount;
         [SerializeField] private float _cd;
+        public UnityEvent OnSuccessClient;
+        public UnityEvent OnFailedClient;
         private int _currCount;
         private bool _spawning;
         private List<Navigation> _clients = new List<Navigation>();
@@ -35,11 +38,19 @@ namespace Client{
             client.ExitPos = _exit.position;
             client.OnExit.AddListener(clientExit);
             client.MoveToBar();
+            if (client.TryGetComponent(out TasteGenerator taste)){
+                taste.OnCorrectChoice.AddListener(clientSuccess);
+                taste.OnIncorrectChoice.AddListener(clientFail);
+            }
         }
 
         private void clientExit(Navigation client){
             _clients.Remove(client);
             _currCount--;
         }
+
+        private void clientSuccess() => OnSuccessClient.Invoke();
+
+        private void clientFail() => OnFailedClient.Invoke();
     }
 }
